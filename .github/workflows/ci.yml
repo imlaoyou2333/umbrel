@@ -19,6 +19,7 @@ jobs:
       # TODO Clean this up into a release script
       - run: cd build && mv umbreld-amd64 umbreld && tar -czvf umbreld-${{ github.ref_name }}-amd64.tar.gz umbreld && rm umbreld
       - run: cd build && mv umbreld-arm64 umbreld && tar -czvf umbreld-${{ github.ref_name }}-arm64.tar.gz umbreld && rm umbreld
+      - run: cd build && mv umbreld-armhf umbreld && tar -czvf umbreld-${{ github.ref_name }}-armhf.tar.gz umbreld && rm umbreld
       - run: cd ../ && git archive --format=tar.gz --output server/build/umbrel-${{ github.ref_name }}.tar.gz --prefix=umbrel-${{ github.ref_name }}/ ${{ github.ref_name }}
       - run: sha256sum build/* > build/SHA256SUMS
       - run: npx opentimestamps stamp build/SHA256SUMS || true # Don't fail the release if timestamping fails
