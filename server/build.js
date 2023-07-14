@@ -46,7 +46,7 @@ async function main() {
   if (isNativeBuild) {
     await buildBinary()
   } else {
-    let architectures = ['amd64', 'arm64']
+    let architectures = ['amd64', 'arm64', 'armhf']
     if (process.argv.includes('--architectures')) {
       architectures = process.argv[process.argv.indexOf('--architectures') + 1].split(',')
     }
